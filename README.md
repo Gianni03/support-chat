@@ -21,5 +21,5 @@ A simple support chat application built with React, TypeScript, Vite, and React 
 
 ## libraries
 
-- shadui/ui
+- shadcn/ui
 - V0.app
