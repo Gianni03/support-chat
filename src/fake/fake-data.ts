@@ -7,8 +7,8 @@ export const loginUser = async () => {
   await sleep(1200);
   return {
     id: 'U1-12345',
-    name: 'Fernando Herrera',
-    email: 'fherrera@gmail.com',
+    name: 'Gianni Pasquinelli',
+    email: 'giannipasquinelli@gmail.com',
     token: 'token-1234567890',
   };
 };
