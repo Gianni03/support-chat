@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 
 import placeholderImage from '@/assets/login.svg';
 import { loginUser } from '@/fake/fake-data';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Loader2 } from 'lucide-react';
 
 export function LoginPage({
@@ -15,11 +15,15 @@ export function LoginPage({
   ...props
 }: React.ComponentProps<'div'>) {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const { mutate: loginMutation, isPending } = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
       localStorage.setItem('token', data.token);
+
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+
       navigate('/chat', { replace: true });
     },
   });
